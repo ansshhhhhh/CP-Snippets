@@ -29,4 +29,4 @@ public:
 			parent[p1] = p2;
 		}
 	}
-}
+};
