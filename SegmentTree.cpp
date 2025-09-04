@@ -40,25 +40,25 @@ public:
 		build(0, 0, size, a);
 	}
 	
-	void update(int i, int x, int lx, int rx){
+	void update(int i, int x, int lx, int rx, int val){
 		if(rx - lx <= 1){
-			value[lx] = single(x);
+			value[lx] = single(val);
 			return;
 		}
 		
 		int m = (lx + rx) / 2;
 
 		if(i < m){
-			update(i, 2 * x + 1, lx, m);
+			update(i, 2 * x + 1, lx, m, val);
 		}else{
-			update(i, 2 * x + 2, m, rx);
+			update(i, 2 * x + 2, m, rx, val);
 		}
 
 		value[x] = merge(value[2 * x + 1], value[2 * x + 2]);
 	}
 
 	void update(int i, int x){
-		update(i, x, 0, size);
+		update(i, x, 0, size, val);
 	}
 
 	item val(int x, int l, int r, int lx, int rx){
