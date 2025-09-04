@@ -27,3 +27,25 @@ void dfs(int node, vector<int>& vis, vector<vector<int>>& graph){
         }
     }
 }
+
+// BFS traversal
+
+	queue<int> q;
+
+    vector<int> vis(n + 1, 0);
+
+    int start = 1;
+    q.push(start);
+    vis[start] = 1;
+
+    while(!q.empty()){
+        int node = q.front();
+        q.pop();
+
+        for(int v: graph[node]){
+            if(vis[v] == 0){
+                vis[v] = 1;
+                q.push(v);
+            }
+        }
+    }
