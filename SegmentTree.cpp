@@ -49,10 +49,12 @@ public:
 		int m = (lx + rx) / 2;
 
 		if(i < m){
-			update(i, x, lx, m);
+			update(i, 2 * x + 1, lx, m);
 		}else{
-			update(i, x, m, rx);
+			update(i, 2 * x + 2, m, rx);
 		}
+
+		value[x] = merge(value[2 * x + 1], value[2 * x + 2]);
 	}
 
 	void update(int i, int x){
