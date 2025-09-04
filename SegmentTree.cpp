@@ -40,6 +40,25 @@ public:
 		build(0, 0, size, a);
 	}
 	
+	void update(int i, int x, int lx, int rx){
+		if(rx - lx <= 1){
+			value[lx] = single(x);
+			return;
+		}
+		
+		int m = (lx + rx) / 2;
+
+		if(i < m){
+			update(i, x, lx, m);
+		}else{
+			update(i, x, m, rx);
+		}
+	}
+
+	void update(int i, int x){
+		update(i, x, 0, size);
+	}
+
 	item val(int x, int l, int r, int lx, int rx){
 		if(rx <= l || r <= lx) return {IDENTITY_ELEMENT};
 		if(l < lx && rx < r) return value[x];
