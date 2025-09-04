@@ -1,8 +1,3 @@
-
-
-
-
-
 struct item {
 	int val;		
 };
@@ -16,7 +11,7 @@ public:
 
 	SegmentTree(int n){
 		size = n;
-		value.resize(4 * n);
+		value.resize(4 * n, IDENTITY_ELEMENT);
 	}
 
 	item single (int val){
