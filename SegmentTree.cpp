@@ -42,7 +42,7 @@ public:
 	
 	void update(int i, int x, int lx, int rx, int val){
 		if(rx - lx <= 1){
-			value[lx] = single(val);
+			value[x] = single(val);
 			return;
 		}
 		
@@ -58,7 +58,7 @@ public:
 	}
 
 	void update(int i, int x){
-		update(i, x, 0, size, val);
+		update(i, 0, 0, size, x);
 	}
 
 	item val(int x, int l, int r, int lx, int rx){
